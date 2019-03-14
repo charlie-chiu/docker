@@ -7,15 +7,14 @@ services:
     depends_on:
       - "php"
     volumes:
-      - "$PWD/conf.d:/etc/nginx/conf.d"
+      - "$PWD/nginx:/etc/nginx/conf.d"
       - "$PWD/src:/var/www/html"
     networks:
       - app_net
     # 容器名称
     container_name: "dnmp_nginx"
   php:
-    build: ./php_mysqli
-      # image指定build Dockerfile生成镜像的名称
+    build: ./php
     image: php:latest-fpm-mysqli
     ports:
       - "9000:9000"
