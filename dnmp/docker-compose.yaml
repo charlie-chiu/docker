@@ -11,11 +11,9 @@ services:
       - "$PWD/src:/var/www/html"
     networks:
       - app_net
-    # 容器名称
     container_name: "dnmp_nginx"
   php:
     build: ./php
-    image: php:latest-fpm-mysqli
     ports:
       - "9000:9000"
     volumes:
