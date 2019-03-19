@@ -7,8 +7,8 @@ services:
     depends_on:
       - "php"
     volumes:
-      - "$PWD/nginx:/etc/nginx/conf.d"
-      - "$PWD/src:/var/www/html"
+      - "./nginx:/etc/nginx/conf.d"
+      - "./src:/var/www/html"
     networks:
       - app_net
     container_name: "dnmp_nginx"
@@ -17,7 +17,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - "$PWD/src:/var/www/html"
+      - "./src:/var/www/html"
     networks:
       - app_net
     container_name: "dnmp_php"
@@ -38,8 +38,8 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - "$PWD/redis/redis.conf:/usr/local/etc/redis/redis.conf"
-      - "$PWD/redis/data:/data"
+      - "./redis/redis.conf:/usr/local/etc/redis/redis.conf"
+      - "./redis/data:/data"
     networks:
       app_net:
         ipv4_address: 10.10.10.2
