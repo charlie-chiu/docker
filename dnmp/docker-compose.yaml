@@ -1,7 +1,11 @@
 version: '3.7'
 services:
   nginx:
+    # 直接使用官方image
+    # 格式  image:tag
     image: nginx:alpine
+
+    # 主機port : container port
     ports:
       - "8080:80"
     depends_on:
@@ -11,8 +15,10 @@ services:
       - "./src:/var/www/html"
     networks:
       - app_net
+    # docker exec -it dnmp_nginx sh
     container_name: "dnmp_nginx"
   php:
+    # 指定要用來build的Dockerfile
     build: ./php
     ports:
       - "9000:9000"
