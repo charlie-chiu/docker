@@ -2,8 +2,6 @@ FROM php:fpm-alpine
 
 MAINTAINER Charlie
 
-COPY php.ini $PHP_INI_DIR/conf.d/
-
 RUN docker-php-ext-install mysqli
 
 # install pecl extentions

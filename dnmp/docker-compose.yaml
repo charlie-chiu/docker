@@ -17,6 +17,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
+      - "$PWD/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
       - "$PWD/src:/var/www/html"
     networks:
       - app_net
